@@ -73,5 +73,43 @@ public class DataBase extends SQLiteAssetHelper {
         return friendsListResult;
     }
 
+    //function to get all friends name
+    @SuppressLint("Range") //again this removes error in using cursor.getColumn (line 182)
+    public List<String> getNames() {
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        SQLiteQueryBuilder sqLiteQueryBuilder = new SQLiteQueryBuilder();
 
-}
+        //need to make sure these match column names in table (can find in Model class as well)
+        //setting these names in a string array
+        String[] sqlSelect = {
+                 "name"
+        };
+        //needs to match the table name
+        //check db browser sql lite to confirm
+        String tableName = "Friends";
+
+        //setting query builder to the table name
+        sqLiteQueryBuilder.setTables(tableName);
+        /*cursor to use the queryBuilder using the table name
+         * in the body read what is in the database, then use the sql array string array list */
+        Cursor cursor = sqLiteQueryBuilder.query(sqLiteDatabase, sqlSelect, null, null, null, null, null);
+
+        //creating empty array list to show result
+        List<String> friendsListResult = new ArrayList<>();
+
+        if (cursor.moveToFirst()) {
+            do {
+                friendsListResult.add(cursor.getString(cursor.getColumnIndex("Name")));
+            } while (cursor.moveToNext());
+        }
+
+        return friendsListResult;
+    }
+
+
+
+
+    }
+
+
+
