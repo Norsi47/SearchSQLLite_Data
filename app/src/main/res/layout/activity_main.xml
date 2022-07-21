@@ -15,8 +15,13 @@ and also maven url in settings.gradle-->
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        app:mt_hint="Search"
-        app:mt_speechMode="false" />
+        app:mt_hint="Search" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_search"
+        android:layout_below="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 </RelativeLayout>
