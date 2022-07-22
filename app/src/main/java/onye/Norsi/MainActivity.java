@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+//for streak
     private void loadSuggestList() {
         suggestList = dataBase.getNames();
         materialSearchBar.setLastSuggestions(suggestList);
