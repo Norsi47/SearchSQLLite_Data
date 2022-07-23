@@ -73,10 +73,42 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        materialSearchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
+            @Override
+            public void onSearchStateChanged(boolean enabled) {
+                if(!enabled)
+                    //restore to default after search is closed
+                    searchAdapter = new SearchAdapter(getBaseContext(), dataBase.getFriends());
+                recyclerView.setAdapter(searchAdapter);
+            }
+
+            @Override
+            public void onSearchConfirmed(CharSequence text) {
+                startSearch(text.toString());
+            }
+
+            @Override
+            public void onButtonClicked(int buttonCode) {
+
+
+            }
+        });
+
+        //init adapter default set all result
+        searchAdapter = new SearchAdapter(this, dataBase.getFriends());
+        recyclerView.setAdapter(searchAdapter);
+
 
 
     }
-//for streak
+
+    private void startSearch(String text) {
+
+        searchAdapter = new SearchAdapter(this, dataBase.getFriendByName(text));
+        recyclerView.setAdapter(searchAdapter);
+    }
+
+    //for streak
     private void loadSuggestList() {
         suggestList = dataBase.getNames();
         materialSearchBar.setLastSuggestions(suggestList);
