@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(searchAdapter);
     }
 
-    //for streak
+    //for streak *2
     private void loadSuggestList() {
         suggestList = dataBase.getNames();
         materialSearchBar.setLastSuggestions(suggestList);
