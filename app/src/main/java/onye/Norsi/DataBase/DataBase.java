@@ -16,7 +16,7 @@ import onye.Norsi.Model.Friends;
 public class DataBase extends SQLiteAssetHelper {
 
     //using the db name in assets folder
-    public static final String DB_NAME = "friend.db";
+    public static final String DB_NAME = "friends.db";
     private static final int DB_VER = 1;
 
     //constructor to get the files saved and version num
@@ -39,7 +39,7 @@ public class DataBase extends SQLiteAssetHelper {
         };
         //needs to match the table name
         //check db browser sql lite to confirm
-        String tableName = "Friends";
+        String tableName = "friends";
 
         //setting query builder to the table name
         sqLiteQueryBuilder.setTables(tableName);
@@ -86,7 +86,7 @@ public class DataBase extends SQLiteAssetHelper {
         };
         //needs to match the table name
         //check db browser sql lite to confirm
-        String tableName = "Friends";
+        String tableName = "friends";
 
         //setting query builder to the table name
         sqLiteQueryBuilder.setTables(tableName);
@@ -120,7 +120,7 @@ public class DataBase extends SQLiteAssetHelper {
         };
         //needs to match the table name
         //check db browser sql lite to confirm
-        String tableName = "Friends";
+        String tableName = "friends";
 
         //setting query builder to the table name
         sqLiteQueryBuilder.setTables(tableName);
