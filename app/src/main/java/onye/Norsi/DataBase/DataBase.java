@@ -34,8 +34,9 @@ public class DataBase extends SQLiteAssetHelper {
 
         //need to make sure these match column names in table (can find in Model class as well)
         //setting these names in a string array
+        //the variables in here needs to match the variable names in the database table caps or no caps
         String[] sqlSelect = {
-                "id", "name", "address", "email", "Phone"
+                "Id", "Name", "Address", "Email", "PhoneNum"
         };
         //needs to match the table name
         //check db browser sql lite to confirm
@@ -60,11 +61,11 @@ public class DataBase extends SQLiteAssetHelper {
                  * since cursor was set to that in line 48*/
 
                 Friends friends = new Friends();
-                friends.setId(cursor.getInt(cursor.getColumnIndex("id")));
-                friends.setName(cursor.getString(cursor.getColumnIndex("name")));
-                friends.setAddress(cursor.getString(cursor.getColumnIndex("address")));
-                friends.setEmail(cursor.getString(cursor.getColumnIndex("email")));
-                friends.setPhone(cursor.getString(cursor.getColumnIndex("Phone")));
+                friends.setId(cursor.getInt(cursor.getColumnIndex("Id")));
+                friends.setName(cursor.getString(cursor.getColumnIndex("Name")));
+                friends.setAddress(cursor.getString(cursor.getColumnIndex("Address")));
+                friends.setEmail(cursor.getString(cursor.getColumnIndex("Email")));
+                friends.setPhone(cursor.getString(cursor.getColumnIndex("PhoneNum")));
 
                 friendsListResult.add(friends);
             } while (cursor.moveToNext());
@@ -82,11 +83,11 @@ public class DataBase extends SQLiteAssetHelper {
         //need to make sure these match column names in table (can find in Model class as well)
         //setting these names in a string array
         String[] sqlSelect = {
-                "name"
+                "Id", "Name", "Address", "Email", "PhoneNum"
         };
         //needs to match the table name
         //check db browser sql lite to confirm
-        String tableName = "friends";
+        String tableName = "Friends";
 
         //setting query builder to the table name
         sqLiteQueryBuilder.setTables(tableName);
@@ -116,7 +117,7 @@ public class DataBase extends SQLiteAssetHelper {
         //need to make sure these match column names in table (can find in Model class as well)
         //setting these names in a string array
         String[] sqlSelect = {
-                "name"
+                "Id", "Name", "Address", "Email", "PhoneNum"
         };
         //needs to match the table name
         //check db browser sql lite to confirm
@@ -128,11 +129,11 @@ public class DataBase extends SQLiteAssetHelper {
          * in the body read what is in the database, then use the sql array string array list */
         //query to select(*) all from friends, wher Name LIKE %pattern%
 
-      /*  //to get exact name use this way
+      /*  //to get exact name in data base use this way
         Cursor cursor = sqLiteQueryBuilder.query(sqLiteDatabase, sqlSelect, "Name = ?", new String[]{name},
                 null, null, null);*/
-
-        Cursor cursor = sqLiteQueryBuilder.query(sqLiteDatabase, sqlSelect, "Name LIKE ?", new String[]{"%" + name + "%"}, null, null, null);
+//select query to get names
+        Cursor cursor = sqLiteQueryBuilder.query(sqLiteDatabase, sqlSelect, "Name LIKE ?", new String[]{"%"+ name +"%"}, null, null, null);
 
         //creating empty array list to show result
         List<Friends> friendsListResult = new ArrayList<>();
@@ -147,11 +148,11 @@ public class DataBase extends SQLiteAssetHelper {
                  * since cursor was set to that in line 48*/
 
                 Friends friends = new Friends();
-                friends.setId(cursor.getInt(cursor.getColumnIndex("id")));
-                friends.setName(cursor.getString(cursor.getColumnIndex("name")));
-                friends.setAddress(cursor.getString(cursor.getColumnIndex("address")));
-                friends.setEmail(cursor.getString(cursor.getColumnIndex("email")));
-                friends.setPhone(cursor.getString(cursor.getColumnIndex("Phone")));
+                friends.setId(cursor.getInt(cursor.getColumnIndex("Id")));
+                friends.setName(cursor.getString(cursor.getColumnIndex("Name")));
+                friends.setAddress(cursor.getString(cursor.getColumnIndex("Address")));
+                friends.setEmail(cursor.getString(cursor.getColumnIndex("Email")));
+                friends.setPhone(cursor.getString(cursor.getColumnIndex("PhoneNum")));
 
                 friendsListResult.add(friends);
             }
