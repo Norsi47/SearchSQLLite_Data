@@ -83,8 +83,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
+            //confirms search by pressing enter or hitting search
             public void onSearchConfirmed(CharSequence text) {
                 startSearch(text.toString());
+                startSearchByAddress(text.toString());
             }
 
             @Override
@@ -103,9 +105,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startSearch(String text) {
-
+        //this shows what we want to see in the search adapter
         searchAdapter = new SearchAdapter(this, dataBase.getFriendByName(text));
         recyclerView.setAdapter(searchAdapter);
+    }
+
+    //finding by address
+    private void  startSearchByAddress(String address) {
+        searchAdapter = new SearchAdapter(this, dataBase.getFriendByAddress(address));
+        recyclerView.setAdapter(searchAdapter);
+
     }
 
     //for streak *2

@@ -97,10 +97,12 @@ public class DataBase extends SQLiteAssetHelper {
 
         //creating empty array list to show result
         List<String> friendsListResult = new ArrayList<>();
-
+        //this adds what will show when search button is pressed
         if (cursor.moveToFirst()) {
             do {
                 friendsListResult.add(cursor.getString(cursor.getColumnIndex("Name")));
+                //address will show up as hint in search box
+                friendsListResult.add(cursor.getString(cursor.getColumnIndex("Address")));
             } while (cursor.moveToNext());
         }
 
@@ -163,6 +165,65 @@ public class DataBase extends SQLiteAssetHelper {
 
 
     }
+
+
+
+    //to find by address of friend
+    @SuppressLint("Range")
+    public List<Friends> getFriendByAddress (String address) {
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        SQLiteQueryBuilder sqLiteQueryBuilder = new SQLiteQueryBuilder();
+
+        //need to make sure these match column names in table (can find in Model class as well)
+        //setting these names in a string array
+        String[] sqlSelect = {
+                "Id", "Name", "Address", "Email", "PhoneNum"
+        };
+        //needs to match the table name
+        //check db browser sql lite to confirm
+        String tableName = "friends";
+
+        //setting query builder to the table name
+        sqLiteQueryBuilder.setTables(tableName);
+        /*cursor to use the queryBuilder using the table name
+         * in the body read what is in the database, then use the sql array string array list */
+        //query to select(*) all from friends, wher Name LIKE %pattern%
+
+      /*  //to get exact name in data base use this way
+        Cursor cursor = sqLiteQueryBuilder.query(sqLiteDatabase, sqlSelect, "Name = ?", new String[]{name},
+                null, null, null);*/
+//select query to get names
+        Cursor cursor = sqLiteQueryBuilder.query(sqLiteDatabase, sqlSelect, "Address LIKE ?", new String[]{"%"+ address +"%"}, null, null, null);
+
+        //creating empty array list to show result
+        List<Friends> friendsListResult = new ArrayList<>();
+
+        if (cursor.moveToFirst()) {
+            do {
+
+                /*in this do while loop
+                 * first create the Friends class to get its variable names
+                 * then set the variable names t match what the cursor will do first
+                 * then match it with the columns by their names in sqlSelect
+                 * since cursor was set to that in line 48*/
+
+                Friends friends = new Friends();
+                friends.setId(cursor.getInt(cursor.getColumnIndex("Id")));
+                friends.setName(cursor.getString(cursor.getColumnIndex("Name")));
+                friends.setAddress(cursor.getString(cursor.getColumnIndex("Address")));
+                friends.setEmail(cursor.getString(cursor.getColumnIndex("Email")));
+                friends.setPhone(cursor.getString(cursor.getColumnIndex("PhoneNum")));
+
+                friendsListResult.add(friends);
+            }
+            while (cursor.moveToNext());
+
+        }
+        return friendsListResult;
+
+
+    }
+
 }
 
 
