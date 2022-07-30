@@ -118,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //for streak *2
+    //calls in the database sql code
+    //sets everything in the dbd files into the search bar
     private void loadSuggestList() {
         suggestList = dataBase.getNames();
         materialSearchBar.setLastSuggestions(suggestList);
