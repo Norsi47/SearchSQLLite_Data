@@ -85,7 +85,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             //confirms search by pressing enter or hitting search
             public void onSearchConfirmed(CharSequence text) {
-                startSearch(text.toString());
+                //can only pick one method
+//                startSearch(text.toString());
                 startSearchByAddress(text.toString());
             }
 
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startSearch(String text) {
-        //this shows what we want to see in the search adapter
+        //this shows what we want to see in the search adapter (the hints)
         searchAdapter = new SearchAdapter(this, dataBase.getFriendByName(text));
         recyclerView.setAdapter(searchAdapter);
     }
