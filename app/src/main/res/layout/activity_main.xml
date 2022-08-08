@@ -10,18 +10,25 @@
 
 <!-- (All under Gradle Scripts)   Need to add dependency in build.gradle(Module) for materialsearchbar
 and also maven url in settings.gradle-->
+
     <com.mancj.materialsearchbar.MaterialSearchBar
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="1dp"
         app:mt_hint="Search" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_search"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/search_bar" />
+        android:layout_below="@+id/search_bar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="-1dp" />
 
 
 </RelativeLayout>
