@@ -86,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
             //confirms search by pressing enter or hitting search
             public void onSearchConfirmed(CharSequence text) {
                 //can only pick one method
-//                startSearch(text.toString());
-                startSearchByAddress(text.toString());
+                startSearch(text.toString());
+//                startSearchByAddress(text.toString());
             }
 
             @Override
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+    //find by Name
     private void startSearch(String text) {
         //this shows what we want to see in the search adapter (the hints)
         searchAdapter = new SearchAdapter(this, dataBase.getFriendByName(text));
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //for streak *2
+
     //calls in the database sql code
     //sets everything in the dbd files into the search bar
     private void loadSuggestList() {
