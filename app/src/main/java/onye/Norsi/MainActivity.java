@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
 
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
@@ -26,10 +29,26 @@ public class MainActivity extends AppCompatActivity {
     MaterialSearchBar materialSearchBar;
     List<String> suggestList = new ArrayList<>();
 
+
+    private void configureNextButton() {
+        Button nextButton = (Button) findViewById(R.id.nextPageID);
+        //logic for when button is pressed
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //where button is starting from (Main class, then second page class)
+                startActivity(new Intent(MainActivity.this, SecondPage.class));
+            }
+        });
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //for next Button
+        configureNextButton();
 
         //initView(Video Example)
         //id is from the activitymain.xml

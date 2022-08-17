@@ -23,12 +23,22 @@ and also maven url in settings.gradle-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_search"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="467dp"
         android:layout_below="@+id/search_bar"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="1dp"
-        android:layout_marginBottom="-1dp" />
+        android:layout_marginBottom="86dp" />
+
+    <Button
+        android:id="@+id/nextPageID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="@string/NextPageButton" />
 
 
 </RelativeLayout>

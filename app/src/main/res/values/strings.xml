@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SearchSQLLite_Data</string>
+    <string name="NextPageButton">NextPage</string>
+    <string name="backButton">MainPage</string>
 </resources>
