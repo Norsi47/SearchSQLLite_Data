@@ -2,4 +2,7 @@
     <string name="app_name">SearchSQLLite_Data</string>
     <string name="NextPageButton">NextPage</string>
     <string name="backButton">MainPage</string>
+    <string name="UsersName">Enter_Name</string>
+    <string name="usersAddress">Enter_Address</string>
+    <string name="USERSAGE">Enter_Age</string>
 </resources>
