@@ -131,11 +131,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //finding by address
-    private void  startSearchByAddress(String address) {
-        searchAdapter = new SearchAdapter(this, dataBase.getFriendByAddress(address));
-        recyclerView.setAdapter(searchAdapter);
-
-    }
+//    private void  startSearchByAddress(String address) {
+//        searchAdapter = new SearchAdapter(this, dataBase.getFriendByAddress(address));
+//        recyclerView.setAdapter(searchAdapter);
+//
+//    }
 
 
     //calls in the database sql code

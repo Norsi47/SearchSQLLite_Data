@@ -4,5 +4,5 @@
     <string name="backButton">MainPage</string>
     <string name="UsersName">Enter_Name</string>
     <string name="usersAddress">Enter_Address</string>
-    <string name="USERSAGE">Enter_Age</string>
+    <string name="USERSPHONE">Enter_Phone</string>
 </resources>
