@@ -15,7 +15,18 @@ public class Friends {
                 ", phone='" + phone + '\'' +
                 '}';
     }
-//alt ins to get constructor, select none
+//commenting out to test
+    //uses this constructor when being called
+    //will print out all info when and ask for info when ever it is called
+    public Friends(int id, String name, String address, String email, String phone) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.email = email;
+        this.phone = phone;
+    }
+
+    //alt ins to get constructor, select none
     public Friends() {
     }
 

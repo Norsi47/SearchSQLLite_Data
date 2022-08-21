@@ -1,6 +1,7 @@
 package onye.Norsi.DataBase;
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -182,6 +183,27 @@ public class DataBase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+
+    }
+
+    public boolean addUserIntoDB(Friends friends){
+        //writable data since it is manually adding friends class
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        //get contents that user type in from the Friends java class
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(USERS_NAME, friends.getName());
+        contentValues.put(USERS_ADDY, friends.getAddress());
+        contentValues.put(USERS_PHONE, friends.getPhone());
+        //id is done automatically
+        long insertToDB = sqLiteDatabase.insert(USERSINFOTABLE, null, contentValues);
+        if (insertToDB == -1) {
+            return false;
+        }
+        else {
+            return true;
+        }
+
 
     }
 
