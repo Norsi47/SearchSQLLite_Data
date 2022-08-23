@@ -207,6 +207,39 @@ public class DataBase extends SQLiteOpenHelper {
 
     }
 
+    //get all saved users in db
+    public List<Friends> getAllUsers() {
+        List<Friends> friendsList = new ArrayList<>();
+
+        String queryString = "SELECT * FROM " + USERSINFOTABLE;
+
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery(queryString, null);
+        //logic to search for all cursors moved
+        if (cursor.moveToFirst()) {
+            do {
+                //follows the table created
+                int userId = cursor.getInt(0);
+                String userName = cursor.getString(1);
+                String userAddress = cursor.getString(2);
+                String userPhone = cursor.getString(3);
+                String usersEmail = cursor.getString(4);
+
+                Friends friends = new Friends(userId, userName, userAddress, userPhone, usersEmail);
+               //create a new array list and add user in it
+                friendsList.add(friends);
+            }
+            while (cursor.moveToNext());
+        } else {
+
+        }
+        cursor.close();
+        sqLiteDatabase.close();
+        return friendsList;
+
+
+    }
+
 
     //to find by address of friend
 //    @SuppressLint("Range")

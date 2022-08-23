@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import onye.Norsi.DataBase.DataBase;
@@ -17,6 +19,12 @@ public class SecondPage extends AppCompatActivity {
 
     EditText usersName, usersAddress, usersPhone, usersEmail;
 
+    ArrayAdapter arrayAdapter;
+
+    ListView listView;
+
+    DataBase dataBase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +33,17 @@ public class SecondPage extends AppCompatActivity {
         configureBackButton();
 
         addUsers = (Button) findViewById(R.id.addUserID);
+        usersName = (EditText) findViewById(R.id.usersNameID);
+        usersAddress = (EditText) findViewById(R.id.usersAddressID);
+        usersPhone = (EditText) findViewById(R.id.phoneNumID);
+        usersEmail = (EditText) findViewById(R.id.email_ID);
+        listView = (ListView) findViewById(R.id.usersListID);
+
+        //initiating database
+        dataBase = new DataBase(SecondPage.this);
+
+        //calling in the method listview
+        showAllUsers(dataBase);
 
         //too add users when addusers is clicked
         addUsers.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +75,17 @@ public class SecondPage extends AppCompatActivity {
 
 
     }
+
+    //get all users added in db
+    public void showAllUsers(DataBase dataBase) {
+        arrayAdapter = new ArrayAdapter <Friends> (SecondPage.this,
+                //using dropdownlist
+                android.R.layout.simple_dropdown_item_1line, dataBase.getAllUsers());
+        listView.setAdapter(arrayAdapter);
+
+
+    }
+
 
     private void configureBackButton() {
         //uses back button to go back to main page

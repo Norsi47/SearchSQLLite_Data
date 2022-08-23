@@ -70,10 +70,25 @@
         android:id="@+id/addUserID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="8dp"
         android:text="AddUser"
         app:layout_constraintBottom_toTopOf="@+id/usersListID"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.347"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/email_ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="@string/emailID"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/addUserID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.328"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumID"
+        app:layout_constraintVertical_bias="0.444" />
 </androidx.constraintlayout.widget.ConstraintLayout>
