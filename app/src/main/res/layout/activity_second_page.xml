@@ -57,7 +57,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usersAddressID" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ListView
         android:id="@+id/usersListID"
         android:layout_width="352dp"
         android:layout_height="212dp"
