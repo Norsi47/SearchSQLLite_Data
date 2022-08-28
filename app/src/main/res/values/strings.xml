@@ -6,4 +6,5 @@
     <string name="usersAddress">Enter_Address</string>
     <string name="USERSPHONE">Enter_Phone</string>
     <string name="emailID">Email_Here</string>
+    <string name="viewUser">ViewUser</string>
 </resources>

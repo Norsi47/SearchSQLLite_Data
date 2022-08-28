@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +16,7 @@ import onye.Norsi.Model.Friends;
 
 public class SecondPage extends AppCompatActivity {
 
-    Button backButton, addUsers;
+    Button backButton, addUsers, viewUsers;
 
     EditText usersName, usersAddress, usersPhone, usersEmail;
 
@@ -38,6 +39,7 @@ public class SecondPage extends AppCompatActivity {
         usersPhone = (EditText) findViewById(R.id.phoneNumID);
         usersEmail = (EditText) findViewById(R.id.email_ID);
         listView = (ListView) findViewById(R.id.usersListID);
+        viewUsers = (Button) findViewById(R.id.viewUserId);
 
         //initiating database
         dataBase = new DataBase(SecondPage.this);
@@ -72,6 +74,22 @@ public class SecondPage extends AppCompatActivity {
             }
         });
 
+        //will display items in list when saved
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Friends friends = (Friends) adapterView.getItemIdAtPosition(i);
+//
+//                showAllUsers(dataBase);
+//                Toast.makeText(SecondPage.this, )
+//
+//            }
+//        });
+        //to show all views saved
+        viewUsers.setOnClickListener((v) -> {
+            DataBase dataBase = new DataBase(SecondPage.this);
+            showAllUsers(dataBase);
+        });
 
 
     }
