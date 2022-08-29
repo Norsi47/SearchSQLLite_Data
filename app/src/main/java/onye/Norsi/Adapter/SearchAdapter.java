@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import onye.Norsi.Model.Friends;
@@ -19,6 +18,7 @@ import onye.Norsi.R;
 class SearchViewHolder extends RecyclerView.ViewHolder {
 
     public TextView name, address, email, phone;
+
     public SearchViewHolder(@NonNull View itemView) {
         super(itemView);
         //id from ui side, all TextView
@@ -28,9 +28,10 @@ class SearchViewHolder extends RecyclerView.ViewHolder {
         phone = (TextView) itemView.findViewById(R.id.phone);
     }
 }
+
 //step 1
 //step 3 extended Recylcer view
-public class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder>{
+public class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder> {
 
     private Context context;
     //made the empty class with variables in here
@@ -47,7 +48,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder>{
     @Override
     public SearchViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View itemView = layoutInflater.inflate(R.layout.layout_item,parent,false);
+        View itemView = layoutInflater.inflate(R.layout.layout_item, parent, false);
 
         return new SearchViewHolder(itemView);
     }

@@ -8,8 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 
-import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -142,7 +140,7 @@ public class DataBase extends SQLiteOpenHelper {
         Cursor cursor = sqLiteQueryBuilder.query(sqLiteDatabase, sqlSelect, "Name = ?", new String[]{name},
                 null, null, null);*/
 //select query to get names
-        Cursor cursor = sqLiteQueryBuilder.query(sqLiteDatabase, sqlSelect, "Name LIKE ?", new String[]{"%"+ name +"%"}, null, null, null);
+        Cursor cursor = sqLiteQueryBuilder.query(sqLiteDatabase, sqlSelect, "Name LIKE ?", new String[]{"%" + name + "%"}, null, null, null);
 
         //creating empty array list to show result
         List<Friends> friendsListResult = new ArrayList<>();
@@ -186,7 +184,7 @@ public class DataBase extends SQLiteOpenHelper {
 
     }
 
-    public boolean addUserIntoDB(Friends friends){
+    public boolean addUserIntoDB(Friends friends) {
         //writable data since it is manually adding friends class
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
@@ -199,8 +197,7 @@ public class DataBase extends SQLiteOpenHelper {
         long insertToDB = sqLiteDatabase.insert(USERSINFOTABLE, null, contentValues);
         if (insertToDB == -1) {
             return false;
-        }
-        else {
+        } else {
             return true;
         }
 
@@ -226,7 +223,7 @@ public class DataBase extends SQLiteOpenHelper {
                 String usersEmail = cursor.getString(4);
 
                 Friends friends = new Friends(userId, userName, userAddress, userPhone, usersEmail);
-               //create a new array list and add user in it
+                //create a new array list and add user in it
                 friendsList.add(friends);
             }
             while (cursor.moveToNext());

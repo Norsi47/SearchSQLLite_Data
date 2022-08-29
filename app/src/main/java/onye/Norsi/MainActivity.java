@@ -1,9 +1,5 @@
 package onye.Norsi;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,11 +7,14 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import onye.Norsi.Adapter.SearchAdapter;
 import onye.Norsi.DataBase.DataBase;
@@ -52,13 +51,13 @@ public class MainActivity extends AppCompatActivity {
 
         //initView(Video Example)
         //id is from the activitymain.xml
-        recyclerView = (RecyclerView)findViewById(R.id.recycler_search);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_search);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
         //id is from the activitymain.xml
-        materialSearchBar = (MaterialSearchBar)findViewById(R.id.search_bar);
+        materialSearchBar = (MaterialSearchBar) findViewById(R.id.search_bar);
 
         //initDB (video example)
         //can do this at the top as well, when Database was first called
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
                 List<String> suggest = new ArrayList<>();
-                for (String search:suggestList) {
+                for (String search : suggestList) {
                     if (search.toLowerCase().contains(materialSearchBar.getText().toLowerCase()))
                         suggest.add(search);
                 }
@@ -95,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         materialSearchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
             @Override
             public void onSearchStateChanged(boolean enabled) {
-                if(!enabled)
+                if (!enabled)
                     //restore to default after search is closed
                     searchAdapter = new SearchAdapter(getBaseContext(), dataBase.getFriends());
                 recyclerView.setAdapter(searchAdapter);
@@ -121,8 +120,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(searchAdapter);
 
 
-
     }
+
     //find by Name
     private void startSearch(String text) {
         //this shows what we want to see in the search adapter (the hints)

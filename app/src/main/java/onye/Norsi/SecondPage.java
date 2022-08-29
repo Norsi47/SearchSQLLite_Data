@@ -1,15 +1,14 @@
 package onye.Norsi;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import onye.Norsi.DataBase.DataBase;
 import onye.Norsi.Model.Friends;
@@ -53,11 +52,10 @@ public class SecondPage extends AppCompatActivity {
             public void onClick(View view) {
                 Friends friends;
                 try {
-                    friends = new Friends(-1, usersName.getText().toString(), usersAddress.getText().toString(),usersEmail.getText().toString(),
+                    friends = new Friends(-1, usersName.getText().toString(), usersAddress.getText().toString(), usersEmail.getText().toString(),
                             usersPhone.getText().toString());
                     Toast.makeText(SecondPage.this, friends.toString(), Toast.LENGTH_SHORT).show();
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     //default should print out if failed
                     Toast.makeText(SecondPage.this, "Error Creating User", Toast.LENGTH_LONG).show();
                     friends = new Friends(-1, "error name", "error address", "error email", "error phone");
@@ -96,7 +94,7 @@ public class SecondPage extends AppCompatActivity {
 
     //get all users added in db
     public void showAllUsers(DataBase dataBase) {
-        arrayAdapter = new ArrayAdapter <Friends> (SecondPage.this,
+        arrayAdapter = new ArrayAdapter<Friends>(SecondPage.this,
                 //using dropdownlist
                 android.R.layout.simple_dropdown_item_1line, dataBase.getAllUsers());
         listView.setAdapter(arrayAdapter);
@@ -112,7 +110,7 @@ public class SecondPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 /*stop here
-                * would add another page here if I want it to connect to it*/
+                 * would add another page here if I want it to connect to it*/
                 finish();
             }
         });

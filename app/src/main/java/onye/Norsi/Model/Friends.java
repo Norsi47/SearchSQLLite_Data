@@ -15,7 +15,8 @@ public class Friends {
                 ", phone='" + phone + '\'' +
                 '}';
     }
-//commenting out to test
+
+    //commenting out to test
     //uses this constructor when being called
     //will print out all info when and ask for info when ever it is called
     public Friends(int id, String name, String address, String email, String phone) {
